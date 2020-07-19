@@ -1,0 +1,212 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #cacaca;
+}
+.scss-test {
+  background: red;
+}
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+body {
+  background-color: #dae3f2;
+}
+
+.tournament-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  justify-content: center;
+}
+.tournament-container img {
+  border-radius: 50%;
+  width: 6.5rem;
+  height: 6.5rem;
+}
+.tournament-container .first-clmn {
+  display: flex;
+  flex-direction: column;
+}
+.tournament-container .first-clmn img {
+  margin: 35px 16px 25px 50px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.tournament-container .scnd-clmn,
+.tournament-container .scnd-clmn .winner {
+  display: flex;
+  flex-direction: column;
+}
+.tournament-container .scnd-clmn .winner {
+  margin: 8rem 4rem;
+  align-items: center;
+  font-size: 16px;
+}
+.tournament-container .scnd-clmn .winner div {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.7px dashed #bbc7d6;
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem;
+}
+.tournament-container .scnd-clmn .winner div img {
+  margin-top: -1px;
+  width: 60px;
+  height: 60px;
+}
+.tournament-container .scnd-clmn .battle-winner-container {
+  justify-content: center;
+}
+.tournament-container .scnd-clmn .battle-winner-container,
+.tournament-container .scnd-clmn .battle-winner-container .bracket {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.tournament-container .scnd-clmn .battle-winner-container .bracket {
+  width: 4rem;
+  height: 10rem;
+  border: 1.7px solid #bbc7d6;
+  border-left: none;
+  justify-items: center;
+}
+.tournament-container .scnd-clmn .battle-winner-container .bracket p {
+  margin-left: 1rem;
+}
+.tournament-container .scnd-clmn .battle-winner-container .bracket div {
+  position: absolute;
+  margin-left: 4rem;
+  height: 2px;
+  width: 5.5rem;
+  background-color: #bbc7d6;
+}
+.tournament-container .last-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tournament-container .last-row .battle-winner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.tournament-container .last-row .battle-winner-container {
+  align-items: center;
+}
+.tournament-container .last-row .battle-winner-container .final-bracket {
+  width: 5rem;
+  height: 5rem;
+  border: 1.7px solid #bbc7d6;
+  border-bottom: none;
+  margin-bottom: 16rem;
+}
+
+.tournament-container .last-row .battle-winner-container .final-bracket .div {
+  width: 2px;
+  height: 50px;
+  background-color: #bbc7d6;
+}
+.tournament-container .last-row .battle-winner-container .bracket {
+  margin: 0 1rem 0 -5rem;
+  width: 4rem;
+  height: 20rem;
+  border: 1.7px solid #bbc7d6;
+  border-left: none;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+.tournament-container .last-row .battle-winner-container .bracket p {
+  margin-left: 1rem;
+}
+.tournament-container .last-row .battle-winner-container .bracket div {
+  position: absolute;
+  margin-left: 4rem;
+  height: 2px;
+  width: 4rem;
+  background-color: #bbc7d6;
+}
+.tournament-container .winner {
+  flex-direction: column;
+  margin: 8rem 4rem;
+  align-items: center;
+  font-size: 16px;
+}
+.tournament-container .winner,
+.tournament-container .winner div {
+  display: flex;
+}
+.tournament-container .winner div {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.7px dashed #bbc7d6;
+  justify-content: center;
+}
+.tournament-container .winner div img {
+  margin-top: -2px;
+  width: 60px;
+  height: 60px;;
+}
+.tournament-container .final-winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 7rem;
+  font-size: 16px;
+}
+.tournament-container .final-winner .final-bracket {
+  margin-top: 5rem;
+  width: 12.7rem;
+  height: 4rem;
+  border: 1.7px solid #bbc7d6;
+  border-bottom: none;
+}
+.tournament-container .final-winner .final-bracket div {
+  height: 4rem;
+  width: 2px;
+  background-color: #bbc7d6;
+  margin: -90px 50% 0;
+}
+
+.tournament-container .final-winner .final-bracket p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.tournament-container .final-winner .battle-winner-container {
+  align-items: center;
+  justify-content: center;
+}
+.tournament-container .final-winner .battle-winner-container p {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+.tournament-container .final-winner .battle-winner-container div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1.7px dashed #bbc7d6;
+  display: flex;
+  justify-content: center;
+}
+.tournament-container .final-winner .battle-winner-container img {
+  margin-top: -2px;
+  width: 100px;
+  height: 100px;
+}
