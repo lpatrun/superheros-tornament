@@ -395,9 +395,7 @@ function renderHerosInTournament() {
         <div></div>
       </div>
       <div class="winner">
-        <div>
-          <div class="winner2">
-          </div>
+        <div class="winner2">
         </div>
       </div>
     </div>
@@ -411,9 +409,7 @@ function renderHerosInTournament() {
           <div></div>
         </div>
         <div class="winner">
-          <div>
-            <div class="winner5">
-            </div>
+          <div class="winner5">
           </div>
         </div>
       </div>
@@ -424,9 +420,7 @@ function renderHerosInTournament() {
           <div></div>
         </div>
         <div class="winner">
-          <div>
-            <div class="winner6">
-            </div>
+          <div class="winner6">
           </div>
         </div>
       </div>
@@ -452,9 +446,7 @@ function renderHerosInTournament() {
         <div></div>
       </div>
       <div class="winner">
-        <div>
-          <div class="winner4">
-          </div>
+        <div class="winner4">
         </div>
       </div>
     </div>
@@ -464,9 +456,7 @@ function renderHerosInTournament() {
         <div></div>
       </div>
       <div class="winner">
-        <div>
-          <div class="winner3">
-          </div>
+        <div class="winner3">
         </div>
       </div>
     </div>
