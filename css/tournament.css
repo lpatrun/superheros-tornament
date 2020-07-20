@@ -64,6 +64,7 @@ body {
   margin-top: -1px;
   width: 60px;
   height: 60px;
+  object-fit: cover;
 }
 .tournament-container .scnd-clmn .battle-winner-container {
   justify-content: center;
@@ -159,7 +160,8 @@ body {
 .tournament-container .winner div img {
   margin-top: -2px;
   width: 60px;
-  height: 60px;;
+  height: 60px;
+  object-fit: cover;
 }
 .tournament-container .final-winner {
   display: flex;
@@ -209,4 +211,9 @@ body {
   margin-top: -2px;
   width: 100px;
   height: 100px;
+  object-fit: cover;
+}
+
+.loosingChamp {
+  filter: grayscale(100%);
 }

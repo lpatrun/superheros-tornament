@@ -115,7 +115,6 @@ function addUI() {
 }
 
 //drugi dio
-
 function startTournament() {
   selectEightHeros();
   renderHerosInTournament();
@@ -165,73 +164,167 @@ function roundResult(firstHeroIndex, sourceContainer) {
   }
 }
 
-function generateResults(firstHeroIndex, sourceContainer, resultsContainer, tournamentStage) {
+function generateResults(sourceContainer, resultsContainer, tournamentStage) {
   let firstHeroWins = 0;
   let secondHeroWins = 0;
-  do {
-    roundResult(firstHeroIndex, sourceContainer) ? firstHeroWins++ : secondHeroWins++;
-  } while (firstHeroWins < 2 && secondHeroWins < 2)
 
-  (firstHeroWins > secondHeroWins) ?
-    eval(resultsContainer).push(eval(sourceContainer)[+firstHeroIndex]) :
-    eval(resultsContainer).push(eval(sourceContainer)[+firstHeroIndex + 1]);
+  for (let j = 0; j <= eval(sourceContainer).length - 1; j += 2) {
+    firstHeroWins = eval(sourceContainer)[j][tournamentStage];
+    secondHeroWins = eval(sourceContainer)[j + 1][tournamentStage];
 
-  eval(sourceContainer)[firstHeroIndex][tournamentStage] = firstHeroWins;
-
-  eval(sourceContainer)[firstHeroIndex + 1][tournamentStage] = secondHeroWins;
-
-  return (firstHeroWins + ":" + secondHeroWins);
+    if (firstHeroWins < 2 && secondHeroWins < 2) {
+      roundResult(j, sourceContainer) ? firstHeroWins++ : secondHeroWins++;
+      eval(sourceContainer)[j][tournamentStage] = firstHeroWins;
+      eval(sourceContainer)[j + 1][tournamentStage] = secondHeroWins;
+    }
+  }
 }
 
 function toSemiFinals() {
-  for (let firstHeroIndex = 0; firstHeroIndex < 4; firstHeroIndex++) {
-    generateResults(firstHeroIndex * 2, "tournamentHeros", "halfFinals", "semiFinals");
+  tournamentHeros.forEach(element => element.semiFinals = 0);
+  tournamentHeros.forEach(element => element.halfFinals = 0);
+  tournamentHeros.forEach(element => element.endFinals = 0);
+  for (let i = 0; i <= 3; i++) {
+    setTimeout(() => {
+      generateResults("tournamentHeros", "halfFinals", "semiFinals");
+      deleteSemiFinals();
+      renderSemiFinals();
+    }, 2000 * (i + 1));
   }
-  toHalfFinals();
+  setTimeout(() => {
+    saveWinners("tournamentHeros", "halfFinals", "semiFinals");
+    renderHalfFinalists();
+    toHalfFinals();
+    semiLoosers();
+  }, 9000);
+}
+
+function saveWinners(sourceContainer, resultsContainer, tournamentStage) {
+  for (let i = 0; i <= eval(sourceContainer).length - 1; i += 2) {
+    eval(sourceContainer)[i][tournamentStage] > eval(sourceContainer)[i + 1][tournamentStage] ?
+      eval(resultsContainer).push(eval(sourceContainer)[+i]) :
+      eval(resultsContainer).push(eval(sourceContainer)[+i + 1]);
+  }
+}
+
+function semiLoosers() {
+  for (let i = 0; i < tournamentHeros.length; i++) {
+    if (tournamentHeros[i].semiFinals < 2) {
+      const selector = ".hero" + (i + 1);
+      $(selector).addClass("loosingChamp");
+    }
+  }
 }
 
 function toHalfFinals() {
-  for (let firstHeroIndex = 0; firstHeroIndex < 2; firstHeroIndex++) {
-    generateResults(firstHeroIndex * 2, "halfFinals", "finalsArray", "halfFinals");
+  for (let i = 0; i <= 3; i++) {
+    setTimeout(() => {
+      generateResults("halfFinals", "finalsArray", "halfFinals");
+      deleteHalfFinals();
+      renderHalfFinals();
+    }, 2000 * (i + 1));
   }
-  toFinals();
+  setTimeout(() => {
+    saveWinners("halfFinals", "finalsArray", "halfFinals");
+    renderFinalists();
+    toFinals();
+    halfLoosers();
+  }, 9000);
+}
+
+function halfLoosers() {
+  for (let i = 0; i < halfFinals.length; i++) {
+    if (halfFinals[i].halfFinals < 2) {
+      const selector = ".winner" + (i + 1);
+      $(selector).addClass("loosingChamp");
+    }
+  }
 }
 
 function toFinals() {
-  generateResults(0, "finalsArray", "finalsResult", "endFinals");
-  renderResults()
+  for (let i = 0; i <= 3; i++) {
+    setTimeout(() => {
+      generateResults("finalsArray", "finalsResult", "endFinals");
+      deleteFinals();
+      renderFinals();
+    }, 2000 * (i + 1));
+  }
+  setTimeout(() => {
+    saveWinners("finalsArray", "finalsResult", "endFinals");
+    renderWinner();
+    finalLooser();
+  }, 9000);
 }
 
-function renderResults() {
+function finalLooser() {
+  for (let i = 0; i < finalsArray.length; i++) {
+    if (finalsArray[i].endFinals < 2) {
+      const selector = ".winner" + (5 + 1);
+      $(selector).addClass("loosingChamp");
+    }
+  }
+}
+
+function deleteSemiFinals() {
+  $(".result1").empty();
+  $(".result2").empty();
+  $(".result3").empty();
+  $(".result4").empty();
+  $(".result5").empty();
+  $(".result6").empty();
+  $(".result7").empty();
+  $(".result8").empty();
+}
+
+function renderSemiFinals() {
   $(".result1").append(tournamentHeros[0].semiFinals);
   $(".result2").append(tournamentHeros[1].semiFinals);
-  $(".winner1").append(`<img src="${halfFinals[0].image.url}">`);
-
   $(".result3").append(tournamentHeros[2].semiFinals);
   $(".result4").append(tournamentHeros[3].semiFinals);
-  $(".winner2").append(`<img src="${halfFinals[1].image.url}">`)
+  $(".result5").append(tournamentHeros[5].semiFinals);
+  $(".result6").append(tournamentHeros[4].semiFinals);
+  $(".result7").append(tournamentHeros[7].semiFinals);
+  $(".result8").append(tournamentHeros[6].semiFinals);
+}
 
-  $(".result5").append(tournamentHeros[4].semiFinals);
-  $(".result6").append(tournamentHeros[5].semiFinals);
+function renderHalfFinalists() {
+  $(".winner1").append(`<img src="${halfFinals[0].image.url}">`);
+  $(".winner2").append(`<img src="${halfFinals[1].image.url}">`);
   $(".winner3").append(`<img style="transform: rotate(180deg);" src="${halfFinals[2].image.url}">`);
-
-  $(".result7").append(tournamentHeros[6].semiFinals);
-  $(".result8").append(tournamentHeros[7].semiFinals);
   $(".winner4").append(`<img style="transform: rotate(180deg);" src="${halfFinals[3].image.url}">`);
+}
 
+function deleteHalfFinals() {
+  $(".result9").empty();
+  $(".result10").empty();
+  $(".result11").empty();
+  $(".result12").empty();
+}
+
+function renderHalfFinals() {
   $(".result9").append(halfFinals[0].halfFinals);
   $(".result10").append(halfFinals[1].halfFinals);
-  $(".winner5").append(`<img src="${finalsArray[0].image.url}">`);
-
   $(".result11").append(halfFinals[2].halfFinals);
   $(".result12").append(halfFinals[3].halfFinals);
+}
+
+function renderFinalists() {
+  $(".winner5").append(`<img src="${finalsArray[0].image.url}">`);
   $(".winner6").append(`<img style="transform: rotate(180deg);" src="${finalsArray[1].image.url}">`);
+}
 
+function deleteFinals() {
+  $(".result13").empty();
+  $(".result14").empty();
+}
 
+function renderFinals() {
   $(".result13").append(finalsArray[0].endFinals);
   $(".result14").append(finalsArray[1].endFinals);
-  $(".winner7").append(`<img src="${finalsResult[0].image.url}">`);
+}
 
+function renderWinner() {
+  $(".winner7").append(`<img src="${finalsResult[0].image.url}">`);
 }
 
 function clearHeader() {
@@ -381,12 +474,11 @@ function renderHerosInTournament() {
     </div>
   </div>
   <div class="first-clmn">
-    <img class="hero6" src=${tournamentHeros[4].image.url}>
-    <img class="hero5" src=${tournamentHeros[5].image.url}>
-    <img class="hero8" src=${tournamentHeros[6].image.url}>
-    <img class="hero7" src=${tournamentHeros[7].image.url}>
+    <img class="hero5" src=${tournamentHeros[4].image.url}>
+    <img class="hero6" src=${tournamentHeros[5].image.url}>
+    <img class="hero7" src=${tournamentHeros[6].image.url}>
+    <img class="hero8" src=${tournamentHeros[7].image.url}>
   </div>
   `
   $(".container").after(markup);
 }
-
