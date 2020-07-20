@@ -259,7 +259,7 @@ function toFinals() {
 function finalLooser() {
   for (let i = 0; i < finalsArray.length; i++) {
     if (finalsArray[i].endFinals < 2) {
-      const selector = ".winner" + (5 + 1);
+      const selector = ".winner" + (5 + i);
       $(selector).addClass("loosingChamp");
     }
   }
@@ -437,9 +437,7 @@ function renderHerosInTournament() {
   <div class="final-winner">
     <div class="battle-winner-container">
       <p>Winner</p>
-      <div>
-        <div class="winner7">
-        </div>
+      <div class="winner7">
       </div>
     </div>
     <div class="final-bracket">
