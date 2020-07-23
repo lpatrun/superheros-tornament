@@ -59,7 +59,8 @@ body {
   justify-content: flex-end;
 }
 
-.container__header--right button {
+.container__header--right-button {
+  display: none;
   background-color: rgb(237, 27, 118);
   color: white;
   border: none;
@@ -70,6 +71,7 @@ body {
 
 .container__body {
   margin-top: 10px;
+  display: none;
 }
 
 .container__body__title {
@@ -129,6 +131,10 @@ body {
   margin: 6px 0px 0px 14px;
 }
 
+.hidden__on__start {
+  display: none;
+}
+
 .container__body__card img {
   padding: 15px 15px 0px 15px;
   height: 230px;
@@ -175,4 +181,12 @@ body {
 
 .chosen-hero {
   filter: grayscale(0%) !important;
+}
+
+.new-game {
+  display: none;
+}
+
+.start-game {
+  display: block;
 }

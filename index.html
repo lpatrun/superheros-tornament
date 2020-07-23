@@ -19,11 +19,12 @@
       </div>
 
       <div class="container__header--center">
-        <button type="button" onclick="getHeros()">POKRENI</button>
+        <button class="start-game" type="button" onclick="getHeros()">POKRENI</button>
+        <button class="new-game" type="button" onclick="playAgain()">NOVA IGRA</button>
       </div>
 
       <div class="container__header--right">
-        <!-- <button onclick="startTournament()">NASTAVI &#8594;</button> -->
+        <button class="container__header--right-button" onclick="startTournament()">NASTAVI &#8594;</button>
       </div>
 
     </div>
@@ -38,22 +39,113 @@
       <div class="container__body__card--inner">
       </div>
 
-      <!-- <div class="switch__left">
-        <div class="switch__left--arrow">&#8592;</div>
+      <div class="switch__left">
+        <div class="switch__left--arrow" onclick="switchLeft()">&#8592;</div>
       </div>
-      
+
       <div class="switch__right">
-        <div class="switch__right--arrow">&#8594;</div>
-      </div> -->
+        <div class="switch__right--arrow" onclick="switchRight()">&#8594;</div>
+      </div>
     </div>
 
-    <!-- <div class="container__randomizer">
+    <div class="container__randomizer">
       <p onclick="randomHero()">Random heroj</p>
-    </div> -->
+    </div>
 
     <div class="container__body__icons">
       <div class="container__body__icons--inner">
       </div>
+    </div>
+  </div>
+
+  <div class="tournament-container">
+    <div class="first-clmn">
+    </div>
+    <div class="scnd-clmn">
+      <div class="battle-winner-container">
+        <div class="bracket">
+          <p><span class="result1"></span>:<span class="result2"></span></p>
+          <div></div>
+        </div>
+        <div class="winner">
+          <div class="winner1">
+          </div>
+        </div>
+      </div>
+
+      <div class="battle-winner-container">
+        <div class="bracket">
+          <p><span class="result3"></span>:<span class="result4"></span></p>
+          <div></div>
+        </div>
+        <div class="winner">
+          <div class="winner2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="last-row">
+
+      <div class="battle-winner-container">
+        <div class="bracket">
+          <p><span class="result9"></span>:<span class="result10"></span></p>
+          <div></div>
+        </div>
+        <div class="winner">
+          <div class="winner5">
+          </div>
+        </div>
+      </div>
+
+      <div class="battle-winner-container" style="transform: rotate(180deg);">
+        <div class="bracket">
+          <p style="transform: rotate(180deg);"><span class="result11"></span>:<span class="result12"></span></p>
+          <div></div>
+        </div>
+        <div class="winner">
+          <div class="winner6">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="final-winner">
+      <div class="battle-winner-container">
+        <p>Winner</p>
+        <div class="winner7">
+        </div>
+      </div>
+      <div class="final-bracket">
+        <p><span class="result13"></span>:<span class="result14"></span></p>
+        <div></div>
+      </div>
+    </div>
+    <div class="scnd-clmn" style="transform: rotate(180deg);">
+      <div class="battle-winner-container">
+        <div class="bracket">
+          <p style="transform: rotate(180deg);"><span class="result7"></span>:<span class="result8"></span></p>
+          <div></div>
+        </div>
+        <div class="winner">
+          <div class="winner4">
+          </div>
+        </div>
+      </div>
+      <div class="battle-winner-container">
+        <div class="bracket">
+          <p style="transform: rotate(180deg);"><span class="result5"></span>:<span class="result6"></span></p>
+          <div></div>
+        </div>
+        <div class="winner">
+          <div class="winner3">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="seventh-clmn">
+
     </div>
   </div>
 

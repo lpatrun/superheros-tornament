@@ -1,57 +1,35 @@
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #cacaca;
-}
-.scss-test {
-  background: red;
-}
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-}
-body {
-  background-color: #dae3f2;
-}
-
 .tournament-container {
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   width: 100%;
   margin-top: 50px;
   justify-content: center;
 }
-.tournament-container img {
-  border-radius: 50%;
-  width: 6.5rem;
-  height: 6.5rem;
-}
-.tournament-container .first-clmn {
+
+.first-clmn {
   display: flex;
   flex-direction: column;
 }
-.tournament-container .first-clmn img {
-  margin: 35px 16px 25px 50px;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-.tournament-container .scnd-clmn,
-.tournament-container .scnd-clmn .winner {
+
+.seventh-clmn {
   display: flex;
   flex-direction: column;
 }
-.tournament-container .scnd-clmn .winner {
+
+.scnd-clmn,
+.winner {
+  display: flex;
+  flex-direction: column;
+}
+
+.winner {
   margin: 8rem 4rem;
   align-items: center;
   font-size: 16px;
 }
-.tournament-container .scnd-clmn .winner div {
+
+.scnd-clmn .winner div {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -60,31 +38,26 @@ body {
   justify-content: center;
   margin: 0 2rem;
 }
-.tournament-container .scnd-clmn .winner div img {
-  margin-top: -1px;
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-}
-.tournament-container .scnd-clmn .battle-winner-container {
+
+.scnd-clmn .battle-winner-container {
   justify-content: center;
 }
-.tournament-container .scnd-clmn .battle-winner-container,
-.tournament-container .scnd-clmn .battle-winner-container .bracket {
+
+.scnd-clmn .battle-winner-container,
+.scnd-clmn .battle-winner-container .bracket {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.tournament-container .scnd-clmn .battle-winner-container .bracket {
+
+ .scnd-clmn .battle-winner-container .bracket {
   width: 4rem;
   height: 10rem;
   border: 1.7px solid #bbc7d6;
   border-left: none;
   justify-items: center;
 }
-.tournament-container .scnd-clmn .battle-winner-container .bracket p {
-  margin-left: 1rem;
-}
+
 .tournament-container .scnd-clmn .battle-winner-container .bracket div {
   position: absolute;
   margin-left: 4rem;
@@ -130,9 +103,7 @@ body {
   flex-direction: row;
   justify-items: center;
 }
-.tournament-container .last-row .battle-winner-container .bracket p {
-  margin-left: 1rem;
-}
+
 .tournament-container .last-row .battle-winner-container .bracket div {
   position: absolute;
   margin-left: 4rem;
@@ -157,12 +128,7 @@ body {
   border: 1.7px dashed #bbc7d6;
   justify-content: center;
 }
-.tournament-container .winner div img {
-  margin-top: -2px;
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-}
+
 .tournament-container .final-winner {
   display: flex;
   flex-direction: column;
@@ -207,11 +173,29 @@ body {
   display: flex;
   justify-content: center;
 }
-.tournament-container .final-winner .battle-winner-container img {
+
+.heroWinner {
   margin-top: -2px;
   width: 100px;
   height: 100px;
   object-fit: cover;
+  border-radius: 50%;  
+}
+
+.big-pic {
+  margin: 35px 20px 25px 20px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.small-pic {
+  margin-top: -1px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .loosingChamp {
